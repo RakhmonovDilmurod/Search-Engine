@@ -31,7 +31,7 @@ re-indexing the database, re-uploading files and calculating their search engine
 rating), maximum number of options in the answer (if not specified, then the value
 is chosen to be five).
 An example of a config.json file description:
-
+ ```ruby
 {
           "config": {
                       "name": "SkillboxSearchEngine",
@@ -46,11 +46,11 @@ An example of a config.json file description:
 
    ]
 }
-
+```  
 3. File with requests requests.json.
 It contains queries that need to be processed by the search engine.
 An example of a requests.json file description:
- 
+ ```ruby
   {
     "requests": [
               "some words..",
@@ -60,13 +60,13 @@ An example of a requests.json file description:
               ]
                 
   } 
-                                                                                                                                                
+ ```                                                                                                                                             
 4. File with answers to requests answers.json.
 The results of the search engine are recorded in it. If at start
 application, this file does not exist in the directory with the project, then it is necessary
 create. If the file already exists, then you need to erase all its contents.
 An example of a config.json file description:
-
+```ruby
 {
  "answers": {
 "request001": {"result": "true","relevance": {"docid": 0, “rank” : 0.989,"docid": 1, “rank” : 0.897,"docid": 2, “rank” : 0.750,"docid": 3, “rank” : 0.670,"docid": 4, “rank” : 0.561}},
@@ -74,7 +74,7 @@ An example of a config.json file description:
 "request003": {"result": "false"}
  }
 }
-
+```  
 ## Google Test for project:
 
 ### Add Google test in main.cpp:
