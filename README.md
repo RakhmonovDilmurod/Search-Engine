@@ -1,6 +1,8 @@
 # Search Engine cpp
 
 Welcome to the Search Engine cpp project! This is a lightweight, command-line-based search engine that provides an effective and efficient way to search through a large dataset of documents.
+Description of the application: this application is a search system that uses search indexes to search text
+files and return the relevance of each file to answers.json using a config.json file in which links to file locations should be provided. Also, for the application to work correctly, it actually requires requests, which must be provided in requests.json. Examples of exactly how to provide all the necessary data are located in the corresponding files in this folder.
 
 ## Prerequisites
 To build and run this project, you need to have the following software installed on your system:
