@@ -14,7 +14,7 @@ To build the project, follow these steps:
 2. Create a build directory
 3. Run CMake to generate the build files:
    Cmake..
-4. Unzip nlohmann_json file and add to project
+4. nlohmann_json is folder with functions to work with json files , it was added to project
 5. Build the project using your preferred build tool.
 6. After the build is complete, you can run the search engine.
 
@@ -29,6 +29,7 @@ re-indexing the database, re-uploading files and calculating their search engine
 rating), maximum number of options in the answer (if not specified, then the value
 is chosen to be five).
 An example of a config.json file description:
+
 {
           "config": {
                       "name": "SkillboxSearchEngine",
@@ -47,6 +48,7 @@ An example of a config.json file description:
 3. File with requests requests.json.
 It contains queries that need to be processed by the search engine.
 An example of a requests.json file description:
+ 
   {
     "requests": [
               "some words..",
@@ -56,12 +58,13 @@ An example of a requests.json file description:
               ]
                 
   }
-
+                                                                                                                                                
 4. File with answers to requests answers.json.
 The results of the search engine are recorded in it. If at start
 application, this file does not exist in the directory with the project, then it is necessary
 create. If the file already exists, then you need to erase all its contents.
 An example of a config.json file description:
+
 {
  "answers": {
 "request001": {"result": "true","relevance": {"docid": 0, “rank” : 0.989,"docid": 1, “rank” : 0.897,"docid": 2, “rank” : 0.750,"docid": 3, “rank” : 0.670,"docid": 4, “rank” : 0.561}},
@@ -69,3 +72,77 @@ An example of a config.json file description:
 "request003": {"result": "false"}
  }
 }
+
+## Google Test for project:
+
+### Add Google test in main.cpp:
+[using namespace std;
+void TestInvertedIndexFunctionality(
+const vector<string>& docs,
+const vector<string>& requests,
+const std::vector<vector<Entry>>& expected
+) {
+std::vector<std::vector<Entry>> result;
+InvertedIndex idx;
+idx.UpdateDocumentBase(docs);
+for(auto& request : requests) {
+std::vector<Entry> word_count = idx.GetWordCount(request);
+result.push_back(word_count);
+}
+ASSERT_EQ(result, expected);
+}
+TEST(TestCaseInvertedIndex, TestBasic) {
+const vector<string> docs = {
+"london is the capital of great britain",
+"big ben is the nickname for the Great bell of the striking clock"
+};
+const vector<string> requests = {"london", "the"};
+const vector<vector<Entry>> expected = {
+{
+{0, 1}
+}, {
+{0, 1}, {1, 3}
+}
+};
+TestInvertedIndexFunctionality(docs, requests, expected);
+}
+TEST(TestCaseInvertedIndex, TestBasic2) {
+const vector<string> docs = {
+"milk milk milk milk water water water",
+"milk water water",
+"milk milk milk milk milk water water water water water",
+"americano cappuccino"
+};
+const vector<string> requests = {"milk", "water", "cappuchino"};
+const vector<vector<Entry>> expected = {
+{
+{0, 4}, {1, 1}, {2, 5}
+}, {
+{0, 2}, {1, 2}, {2, 5}
+}, {
+{3, 1}
+}
+};
+TestInvertedIndexFunctionality(docs, requests, expected);
+}
+TEST(TestCaseInvertedIndex, TestInvertedIndexMissingWord) {
+const vector<string> docs = {
+"a b c d e f g h i j k l",
+"statement"
+};
+const vector<string> requests = {"m", "statement"};
+const vector<vector<Entry>> expected = {
+{
+}, {
+{1, 1}
+}
+};
+TestInvertedIndexFunctionality(docs, requests, expected);
+}
+        ]
+
+## After running
+The result of testing project : 
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (2 ms total)
+[  PASSED  ] 3 tests.
