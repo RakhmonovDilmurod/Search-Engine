@@ -14,11 +14,28 @@ To build the project, follow these steps:
 2. Create a build directory
 3. Run CMake to generate the build files:
    Cmake..
-4. Unzip nlohmann_json file 
+4. Unzip nlohmann_json file and add to project
 5. Build the project using your preferred build tool.
 6. After the build is complete, you can run the search engine.
 
 ## Using the Search Engine
-To use the search engine, you need to have a dataset of documents. The search engine supports the following file format: json.
-
+To use the search engine, you need to have a dataset of documents. The search engine supports the following files format: config.json , requests.json , answers.json
 The search engine provides a simple command-line interface for searching documents. Type the search query and press Enter to receive the search results.
+
+1. Configuration file config.json.
+Without it, the application cannot be launched. It contains the name of the search engine,
+its version, database update time (how often should it be done
+re-indexing the database, re-uploading files and calculating their search engine
+rating), maximum number of options in the answer (if not specified, then the value
+is chosen to be five).
+
+2. File with requests requests.json.
+It contains queries that need to be processed by the search engine.
+
+3. File with answers to requests answers.json.
+The results of the search engine are recorded in it. If at start
+application, this file does not exist in the directory with the project, then it is necessary
+create. If the file already exists, then you need to erase all its contents.
+
+
+
