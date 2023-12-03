@@ -14,8 +14,9 @@ To build the project, follow these steps:
 2. Create a build directory
 3. Run CMake to generate the build files:
    Cmake..
-4. Build the project using your preferred build tool.
-5. After the build is complete, you can run the search engine.
+4. Unzip nlohmann_json file 
+5. Build the project using your preferred build tool.
+6. After the build is complete, you can run the search engine.
 
 ## Using the Search Engine
 To use the search engine, you need to have a dataset of documents. The search engine supports the following file format: json.
