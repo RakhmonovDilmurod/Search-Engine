@@ -57,7 +57,7 @@ An example of a requests.json file description:
               "some words..".
               ]
                 
-  }
+  } 
                                                                                                                                                 
 4. File with answers to requests answers.json.
 The results of the search engine are recorded in it. If at start
@@ -76,7 +76,7 @@ An example of a config.json file description:
 ## Google Test for project:
 
 ### Add Google test in main.cpp:
-[using namespace std;
+using namespace std;
 void TestInvertedIndexFunctionality(
 const vector<string>& docs,
 const vector<string>& requests,
@@ -138,8 +138,8 @@ const vector<vector<Entry>> expected = {
 }
 };
 TestInvertedIndexFunctionality(docs, requests, expected);
-}
-        ]
+}     
+        
 
 ## After running
 The result of testing project : 
