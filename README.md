@@ -41,7 +41,7 @@ An example of a config.json file description:
                      "../resources/file003.txt",
                      "../resources/file004.txt"
 
-                    ]
+   ]
 }
 
 3. File with requests requests.json.
