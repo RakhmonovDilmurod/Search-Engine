@@ -78,6 +78,7 @@ An example of a config.json file description:
 ## Google Test for project:
 
 ### Add Google test in main.cpp:
+```ruby
 using namespace std;
 void TestInvertedIndexFunctionality(
 const vector<string>& docs,
@@ -141,7 +142,7 @@ const vector<vector<Entry>> expected = {
 };
 TestInvertedIndexFunctionality(docs, requests, expected);
 }     
-        
+```        
 
 ## After running
 The result of testing project : 
