@@ -146,6 +146,8 @@ TestInvertedIndexFunctionality(docs, requests, expected);
 
 ## After running
 ### The result of testing project : 
+```
 [----------] Global test environment tear-down
 [==========] 3 tests from 1 test suite ran. (2 ms total)
 [  PASSED  ] 3 tests.
+```
