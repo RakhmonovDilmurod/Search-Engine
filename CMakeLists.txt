@@ -23,9 +23,9 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 add_executable(search_engine
 
     src/main.cpp
-    answers.json
-    config.json
-    requests.json
+    include/answers.json
+    include/config.json
+    include/requests.json
     include/SearchServer.h
     include/ConvertJSON.h
     include/InvertedIndex.h
